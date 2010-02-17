@@ -1,6 +1,6 @@
-bin/*
-config/database.yml
+.idea
+.bundle
 db/*.sqlite3
 log/*.log
-rerun.txt
-vendor/bundler_gems/*
+tmp/**/*
+config/database.yml

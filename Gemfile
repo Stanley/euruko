@@ -1,24 +1,34 @@
 source "http://gemcutter.org"
-source "http://gems.github.com/"
+source "http://gems.github.com"
 
-gem 'rake', '0.8.7'
-gem 'mime-types', '1.15'
-gem 'i18n', '0.3.3'
-gem 'tmail', '1.2.0'
-gem 'tzinfo', '0.3.16'
-gem "rails", "2.3.5"
-gem "sqlite3-ruby", "1.2.5", :require => 'sqlite3'
-gem "haml", "2.2.17"
-gem "authlogic", "2.1.3"
-gem "resource_controller", "0.6.6"
+gem 'rails', '3.0.0.beta'
 
-group :test do
-  gem "rspec", "1.3.0"
-  gem "rspec-rails", "1.3.1"
-  gem "cucumber", "0.6.2"
-  gem "cucumber-rails", "0.2.3"
-  gem "database_cleaner", "0.2.3"
-  gem "capybara", "0.2.0"
-  gem "factory_girl", "1.2.3"
-  gem "ruby-debug", "0.10.3"
-end
+# Bundle edge Rails instead:
+# gem 'rails', :git => 'git://github.com/rails/rails.git'
+
+# Use mongrel as the web server
+gem 'thin'
+
+# Deploy with Capistrano
+# gem 'capistrano'
+
+# Bundle the extra gems:
+# gem 'bj'
+# gem 'hpricot', '0.6'
+# gem 'authlogic'
+# gem 'sqlite3-ruby', :require => 'sqlite3'
+# gem 'aws-s3', :require => 'aws/s3'
+
+gem "mime-types", :require => "mime/types"
+gem "i18n"
+gem "tmail"
+gem "tzinfo"
+gem "sqlite3-ruby", :require => "sqlite3"
+gem "authlogic", :git => "git://github.com/binarylogic/authlogic.git"
+gem "resource_controller"
+
+# Bundle gems for certain environments:
+# gem 'rspec', :group => :test
+# group :test do
+#   gem 'webrat'
+# end
