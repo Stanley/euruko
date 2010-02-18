@@ -12,5 +12,8 @@ ActionController::Routing::Routes.draw do |map|
     administration.resources :presentations
   end
 
+  map.login '/login', :controller => 'user_sessions', :action => 'new'
+  map.logout '/logout', :controller => 'user_sessions', :action => 'destroy'
+
   map.root :controller => 'home'
 end

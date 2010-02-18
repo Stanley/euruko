@@ -26,7 +26,7 @@ Feature: User accounts
     Then I should see "should look like an email address."
 
   Scenario: Creating the same user
-    Given user with "E-mail" "user@example.com" exists
+    Given user with "email" "user@example.com" exists
       And I access the site as guest
       And I am on the home page
     When I fill in "E-mail" with "user@example.com"
@@ -35,4 +35,4 @@ Feature: User accounts
       And I fill in "First name" with "John"
       And I fill in "Last name" with "Doe"
       And I press "Create my account"
-    Then I should see "already exists"
+    Then I should see "already been taken"

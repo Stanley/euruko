@@ -10,5 +10,9 @@
       = f.password_field(:password)
       = f.error_message_on(:password)
   
-  %p= f.submit("Log in")
+  %p
+    = f.submit("Log in")
+    or
+    = link_to("forgotten password", new_password_reset_path)
+
   

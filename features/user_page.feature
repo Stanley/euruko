@@ -5,6 +5,5 @@ Feature: User page
 
   Scenario: Accessing my page
     Given I log in as user
-    Then I should see "John"
-    And I should see "Doe"
-    And I should see "We will notify you when the registration starts"
+    Then I should see "Witaj!"
+      And I should see "John Doe"
