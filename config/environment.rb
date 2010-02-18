@@ -40,9 +40,8 @@ Rails::Initializer.run do |config|
   # config.i18n.default_locale = :de
   config.gem "rack", :version => "1.0.1"
   config.gem "sqlite3-ruby", :version => "1.2.5", :lib => 'sqlite3'
-  config.gem "haml", :version => "2.2.17"
+  config.gem "haml", :version => "2.2.20"
   config.gem "authlogic", :version => "2.1.3"
-  config.gem "resource_controller", :version => "0.6.6"
   config.gem "site_meta", :version => "=0.2.0"
 end
 

@@ -7,9 +7,11 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :users
 
   map.namespace :administration do |administration|
-    administration.root :controller => 'home'
     administration.resource :admin_session
     administration.resources :presentations
+    administration.login '/login', :controller => 'admin_sessions', :action => 'new'
+    administration.logout '/logout', :controller => 'admin_sessions', :action => 'destroy'
+    administration.root :controller => 'home'
   end
 
   map.login '/login', :controller => 'user_sessions', :action => 'new'

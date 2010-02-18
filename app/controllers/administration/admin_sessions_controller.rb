@@ -1,8 +1,24 @@
 class Administration::AdminSessionsController < Administration::ApplicationController
-  resource_controller
 
   skip_before_filter :require_admin, :except => :destroy
 
-  create.wants.html {redirect_to administration_root_path}
-  create.flash "You are now logged in as admin"
+  def new
+    @admin_session = AdminSession.new
+  end
+
+  def create
+    @admin_session = AdminSession.new(params[:admin_session])
+    if @admin_session.save
+      flash[:notice] = "You are now logged in as admin"
+      redirect_to administration_root_path
+    else
+      render :action => :new
+    end
+  end
+
+  def destroy
+    current_admin_session.destroy
+    redirect_to root_path
+  end
+
 end

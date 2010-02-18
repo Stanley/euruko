@@ -1,5 +1,21 @@
 class Administration::PresentationsController < Administration::ApplicationController
-  resource_controller
 
-  create.wants.html {redirect_to administration_presentations_path}
+  def index
+    @presentations = Presentation.all
+  end
+
+  def new
+    @presentation = Presentation.new
+  end
+
+  def create
+    @presentation = Presentation.new(params[:presentation])
+    if @presentation.save
+      flash[:notice] = "Presentation was created"
+      redirect_to administration_presentations_path
+    else
+      render :action => 'new'
+    end
+  end
+
 end

@@ -7,7 +7,7 @@ Feature: Password reset
     Given user with "email" "forgotten@example.com" exists
       And I go to the home page
     When I follow "Log in"
-      And I follow "I have forgotten my password"
+      And I follow "forgotten password"
       And I fill in "E-mail" with "forgotten@example.com"
       And I press "Reset my password"
     Then I should be on the home page

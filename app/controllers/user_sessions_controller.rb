@@ -1,6 +1,17 @@
 class UserSessionsController < ApplicationController
-  resource_controller
-  create.wants.html {redirect_to current_user}
+
+  def new
+    @user_session = UserSession.new
+  end
+
+  def create
+    @user_session = UserSession.new(params[:user_session])
+    if @user_session.save
+      redirect_to current_user
+    else
+      render :action => :new
+    end
+  end
 
   def destroy
     current_user_session.destroy

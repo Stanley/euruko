@@ -8,9 +8,8 @@ gem 'tmail', '1.2.0'
 gem 'tzinfo', '0.3.16'
 gem "rails", "2.3.5"
 gem "sqlite3-ruby", "1.2.5", :require => 'sqlite3'
-gem "haml", "2.2.17"
+gem "haml", "2.2.20"
 gem "authlogic", "2.1.3"
-gem "resource_controller", "0.6.6"
 
 group :test do
   gem "rspec", "1.3.0"

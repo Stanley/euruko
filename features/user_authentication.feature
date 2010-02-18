@@ -19,7 +19,7 @@ Feature: User authentication
       And I fill in "E-mail" with "john@example.com"
       And I fill in "Password" with "user1234"
       And I press "Log in"
-    Then I should see "Please log in"
+    Then I should see "Logging in"
 
   Scenario: Logging out
     Given I log in as user with email "john@example.com"
