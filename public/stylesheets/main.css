@@ -1,0 +1,50 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  font-size: small; }
+
+#wrapper {
+  width: 760px;
+  margin: auto;
+  position: relative; }
+
+#header {
+  width: 760px;
+  height: 242px;
+  margin: auto;
+  position: relative;
+  background: url('/images/banner.png') no-repeat 0 50px; }
+  #header > a {
+    font-size: 30px;
+    padding: 10px;
+    font-weight: bold;
+    color: #b12321;
+    text-decoration: none;
+    display: block;
+    width: 740px;
+    height: 222px; }
+  #header > span {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 22px;
+    color: #444243; }
+
+#content {
+  padding: 20px;
+  margin-right: 240px; }
+
+#sidebar {
+  width: 200px;
+  padding: 20px;
+  position: absolute;
+  top: 0;
+  right: 0; }
+  #sidebar img {
+    float: left; }
+  #sidebar p {
+    text-align: justify; }
+
+.formError {
+  color: red; }

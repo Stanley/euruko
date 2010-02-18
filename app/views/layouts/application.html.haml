@@ -1,44 +1,42 @@
-!!! 5
-%html
+!!! 1.1
+%html{:xmlns => "http://www.w3.org/1999/xhtml", 'xml:lang' => "en", 'lang' => "en"}
   %head
+    %meta{'http-equiv' => "content-type", :content => "text/html;charset=UTF-8"}/
     = head_title("EuRuKo 2010")
     = meta_description("Register to EuRuKo 2010")
     = stylesheet_link_tag 'main'
   %body
+
+    #header
+      = link_to "EuRuKo 2010", "/"
+      %span May 29th/30th Kraków
+
     #wrapper
-      #main
-        %img{:src => image_path("banner.jpg")}
-        #content
-          %h2= page_title
+      #content
+        %h2= page_title
+        -if flash[:notice]
           #flash= flash[:notice]
-          = yield
+        = yield
 
       #sidebar
         - if current_user
-          #header
-            %h2= ""
-            Hi,
+          %h2 Witaj!
+          %p
             = link_to current_user.full_name, :controller => "users", :action => "show", :id => current_user.id
             = button_to("Log out", user_session_path, :method => :delete)
 
-        %h2= "What's EuRuKo?"
+        %h2 What's EuRuKo?
         %p EuRuKo is an annual conference about the Ruby programming language with an informal atmosphere and lots of opportunities to listen, to talk, to hack and to have fun. This year takes place in Krakow, Poland, on the 29th-30th of May.
 
-        %h2= "Follow us"
+        %h2 Follow us
         %p
-          %img{:alt => "twitter logo", :width => "0", :height => "0",
-               :align => "left", :src => image_path("twitter.png")}
-          %img{:width => "60", :height => "60", :align => "left",
-               :alt => "", :src => image_path("twitter.png")}
+          = image_tag "/images/twitter.png"
           We've got a Twitter account (<a href="http://twitter.com/euruko">@euruko</a>) to keep you up to date on everything related with the conference. If you follow us you'll be getting the most updated information.
 
-        %h2= "That's Ruby!"
+        %h2 That's Ruby!
         %p
-          %img{ :alt => "ruby logo", :width => "0", :height => "0",
-                :align => "left", :src => image_path("ruby.png")}
-          %img{:alt => "ruby logo", :width => "60", :height => "60",
-               :align => "left", :src => image_path("ruby.png")}
+          = image_tag "/images/ruby.png"
           Ruby is a dynamic, open source programming language with a focus on simplicity and productivity. It has an elegant syntax that is natural to read and easy to write.&nbsp;<a href="http://www.ruby-lang.org/en/about/">More...</a>
 
-        %h2= "Sponsors"
-        %p Click <a href="http://wawelhill.com/images/EuRuKo2010_Sponsorship.pdf">here</a> to download the 2010 sponsorship package. Please contact sponsorships@euruko2010.org with questions.
+        %h2 Sponsors
+        %p Please download the 2010 #{ link_to "sponsorship package", "http://wawelhill.com/images/EuRuKo2010_Sponsorship.pdf" } and contact #{ mail_to "sponsorships@euruko2010.org" } with questions.
