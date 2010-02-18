@@ -3,13 +3,42 @@
   %head
     = head_title("EuRuKo 2010")
     = meta_description("Register to EuRuKo 2010")
+    = stylesheet_link_tag 'main'
   %body
-    #flash= flash[:notice]
-    - if current_user
-      #header
-        You are logged in as
-        = "%s." % h(current_user.full_name)
-        = button_to("Log out", user_session_path, :method => :delete)
-    #content
-      %h1= page_title
-      = yield
+    #wrapper
+      #main
+        %img{:src => image_path("banner.jpg")}
+        #content
+          %h2= page_title
+          #flash= flash[:notice]
+          = yield
+
+      #sidebar
+        - if current_user
+          #header
+            %h2= ""
+            Hi,
+            = link_to current_user.full_name, :controller => "users", :action => "show", :id => current_user.id
+            = button_to("Log out", user_session_path, :method => :delete)
+
+        %h2= "What's EuRuKo?"
+        %p EuRuKo is an annual conference about the Ruby programming language with an informal atmosphere and lots of opportunities to listen, to talk, to hack and to have fun. This year takes place in Krakow, Poland, on the 29th-30th of May.
+
+        %h2= "Follow us"
+        %p
+          %img{:alt => "twitter logo", :width => "0", :height => "0",
+               :align => "left", :src => image_path("twitter.png")}
+          %img{:width => "60", :height => "60", :align => "left",
+               :alt => "", :src => image_path("twitter.png")}
+          We've got a Twitter account (<a href="http://twitter.com/euruko">@euruko</a>) to keep you up to date on everything related with the conference. If you follow us you'll be getting the most updated information.
+
+        %h2= "That's Ruby!"
+        %p
+          %img{ :alt => "ruby logo", :width => "0", :height => "0",
+                :align => "left", :src => image_path("ruby.png")}
+          %img{:alt => "ruby logo", :width => "60", :height => "60",
+               :align => "left", :src => image_path("ruby.png")}
+          Ruby is a dynamic, open source programming language with a focus on simplicity and productivity. It has an elegant syntax that is natural to read and easy to write.&nbsp;<a href="http://www.ruby-lang.org/en/about/">More...</a>
+
+        %h2= "Sponsors"
+        %p Click <a href="http://wawelhill.com/images/EuRuKo2010_Sponsorship.pdf">here</a> to download the 2010 sponsorship package. Please contact sponsorships@euruko2010.org with questions.
