@@ -29,8 +29,10 @@ gem "sqlite3-ruby", :require => "sqlite3"
 gem "authlogic", :git => "git://github.com/binarylogic/authlogic.git"
 gem "paperclip" #, :git => "git://github.com/jsierles/paperclip.git"
 
+
 # Bundle gems for certain environments:
 # gem 'rspec', :group => :test
-# group :test do
-#   gem 'webrat'
-# end
+group :test do
+  gem 'webrat'
+  gem "cucumber-rails"
+end

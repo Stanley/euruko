@@ -4,12 +4,11 @@
 # instead of editing this one. Cucumber will automatically load all features/**/*.rb
 # files.
 
-ENV["RAILS_ENV"] ||= "cucumber"
 require File.expand_path(File.dirname(__FILE__) + '/../../config/environment')
-
 require 'cucumber/formatter/unicode' # Remove this line if you don't want Cucumber Unicode support
-require 'cucumber/rails/rspec'
 require 'cucumber/rails/world'
+
+# FIX: In Rails 3 we shouldn't HAVE TO use active_record!!!
 require 'cucumber/rails/active_record'
 require 'cucumber/web/tableish'
 
@@ -52,4 +51,4 @@ Cucumber::Rails::World.use_transactional_fixtures = true
 # http://github.com/bmabey/database_cleaner for more info.
 require 'database_cleaner'
 DatabaseCleaner.strategy = :truncation
-require 'email_spec/cucumber'
+
