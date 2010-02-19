@@ -19,13 +19,13 @@ gem 'thin'
 # gem 'sqlite3-ruby', :require => 'sqlite3'
 # gem 'aws-s3', :require => 'aws/s3'
 
+gem "haml"
 gem "mime-types", :require => "mime/types"
 gem "i18n"
 gem "tmail"
 gem "tzinfo"
 gem "sqlite3-ruby", :require => "sqlite3"
 gem "authlogic", :git => "git://github.com/binarylogic/authlogic.git"
-gem "resource_controller"
 
 # Bundle gems for certain environments:
 # gem 'rspec', :group => :test
