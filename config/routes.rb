@@ -71,4 +71,10 @@ Euruko::Application.routes.draw do |map|
   # match ':controller(/:action(/:id(.:format)))'
 
 
+#    administration.login '/login', :controller => 'admin_sessions', :action => 'new'
+#    administration.logout '/logout', :controller => 'admin_sessions', :action => 'destroy'
+
+#  map.login '/login', :controller => 'user_sessions', :action => 'new'
+#  map.logout '/logout', :controller => 'user_sessions', :action => 'destroy'
+
 end

@@ -33,4 +33,8 @@
       %dd
         = f.text_field(:nick_name)
         = f.error_message_on(:nick_name)
-  %p= f.submit("Create my account")
+  %p
+    = f.submit("Create my account")
+    or
+    = link_to "Log in", login_path
+    if you already have an account

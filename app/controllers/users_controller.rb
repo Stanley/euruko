@@ -1,9 +1,22 @@
+# encoding: utf-8
+
 class UsersController < ApplicationController
-  resource_controller
 
-  before_filter :require_owner, :only => :show
+  def new
+    @user = User.new
+  end
 
-  actions :new, :create, :show
+  def create
+    @user = User.new(params[:user])
+    if @user.save
+      flash[:notice] = "Your account was created"
+      redirect_to user_path(@user)
+    else
+      render :action => 'new'
+    end
+  end
 
-  create.flash "Your account was created"
+  def show
+    @user = current_admin ? User.first(params['id']) : current_user
+  end
 end

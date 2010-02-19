@@ -31,4 +31,7 @@
         = f.text_field(:speaker_email)
         = f.label(:speaker_email, "Speaker email")
 
-  %p= f.submit("Submit presentation")
+  %p
+    = f.submit(@presentation.new_record? ? "Submit presentation" : "Update presentation")
+    or
+    = link_to "Cancel", current_user ? user_path(current_user) : administration_root_path

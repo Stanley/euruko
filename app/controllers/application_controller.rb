@@ -10,10 +10,6 @@ class ApplicationController < ActionController::Base
   filter_parameter_logging :password, :password_confirmation
   helper_method :current_user_session, :current_user, :current_admin_session, :current_admin
 
-  def require_owner
-    current_admin || object.owner == current_user || send_unauthorized
-  end
-
   def send_unauthorized
     render(:file => 'public/401.html', :status => 401)
   end
