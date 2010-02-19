@@ -17,6 +17,14 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = current_admin ? User.first(params['id']) : current_user
+
+    @user = if params['id'] and current_admin
+      User.first(params['id'])
+    else
+      current_user
+    end
+
+    send_unauthorized unless @user
+    
   end
 end

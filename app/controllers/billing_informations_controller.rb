@@ -1,7 +1,6 @@
 class BillingInformationsController < ApplicationController
 
   before_filter :require_user
-<<<<<<< HEAD:app/controllers/billing_informations_controller.rb
 #  before_filter :require_owner, :except => [:new, :create]
   
   def new
@@ -13,7 +12,7 @@ class BillingInformationsController < ApplicationController
     @billing_information.user = current_user
     if @billing_information.save
       flash[:notice] = "Billing Information was created"
-      redirect_to user_path(current_user)
+      redirect_to current_user_path
     else
       render :action => 'new'
     end
@@ -29,7 +28,7 @@ class BillingInformationsController < ApplicationController
 
     if @billing_information.update_attributes(params[:billing_information ])
       flash[:notice] = "Billing information  was updated"
-      redirect_to user_path(current_user)
+      redirect_to current_user_path
     else
       render :action => 'edit'
     end

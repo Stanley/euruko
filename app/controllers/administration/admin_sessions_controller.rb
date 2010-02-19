@@ -7,7 +7,7 @@ class Administration::AdminSessionsController < Administration::ApplicationContr
   end
 
   def create
-    @admin_session = AdminSession.new(params[:admin_session])
+    @admin_session = AdminSession.new(params['admin_session'])
     if @admin_session.save
       flash[:notice] = "You are now logged in as admin"
       redirect_to administration_root_path

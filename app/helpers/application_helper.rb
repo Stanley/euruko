@@ -6,9 +6,9 @@ module ApplicationHelper
   def menu_to(name, options = {}, html_options = {}, &block)
     content = link_to(name, options, html_options, &block)
     if current_page?(options)
-      "<li class=\"selected\">#{content}</li>"
+      "<li class=\"selected\">#{content}</li>".html_safe
     else
-      "<li>#{content}</li>"
+      "<li>#{content}</li>".html_safe
     end
   end
 end

@@ -25,6 +25,7 @@
     %dd
       = f.radio_button(:length, "lightning")
       = f.label(:length_lightning, "Lightning talk")
+      = f.error_message_on(:length)
   
     %dt= f.label(:photo, "Photo")
     %dd
@@ -39,4 +40,4 @@
   %p
     = f.submit(@presentation.new_record? ? "Submit presentation" : "Update presentation")
     or
-    = link_to "Cancel", current_user ? user_path(current_user) : administration_root_path
+    = link_to "Cancel", current_user ? current_user_path : administration_root_path

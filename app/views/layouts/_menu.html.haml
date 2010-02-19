@@ -2,10 +2,11 @@
   %ul
     = menu_to "Home", root_path
     - if current_user
-      %li= link_to "Log out", user_session_path, :method => :delete
-      %li
-        You are logged in as
-        = "%s." % h(current_user.full_name)
+      %li= link_to "Log out", logout_path
+      %li= link_to "Logged in as #{current_user.full_name}", current_user_path
+    - elsif current_admin
+      %li= link_to "Log out", administration_logout_path
+      %li.admin= link_to "Logged in as #{current_admin.email}", administration_root_path
     - else
       = menu_to "Login", new_user_session_path
       = menu_to "Signup", new_user_path
