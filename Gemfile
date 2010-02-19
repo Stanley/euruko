@@ -27,6 +27,7 @@ gem "tmail"
 gem "tzinfo"
 gem "sqlite3-ruby", :require => "sqlite3"
 gem "authlogic", :git => "git://github.com/binarylogic/authlogic.git"
+gem "paperclip"
 
 # Bundle gems for certain environments:
 # gem 'rspec', :group => :test

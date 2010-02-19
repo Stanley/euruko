@@ -1,6 +1,7 @@
 class BillingInformationsController < ApplicationController
 
   before_filter :require_user
+<<<<<<< HEAD:app/controllers/billing_informations_controller.rb
 #  before_filter :require_owner, :except => [:new, :create]
   
   def new
