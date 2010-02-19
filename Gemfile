@@ -19,6 +19,7 @@ gem 'thin'
 # gem 'sqlite3-ruby', :require => 'sqlite3'
 # gem 'aws-s3', :require => 'aws/s3'
 
+gem "site_meta"
 gem "haml"
 gem "mime-types", :require => "mime/types"
 gem "i18n"

@@ -55,6 +55,8 @@ Euruko::Application.routes.draw do |map|
   namespace :administration do
     resource :admin_session
     resources :presentations
+    match "/login" => "admin_sessions#new", :as => "login"
+    match "/logout" => "admin_sessions#destroy", :as => "logout"
     root :to => "home#index"
   end
 
@@ -70,11 +72,7 @@ Euruko::Application.routes.draw do |map|
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
 
-
-#    administration.login '/login', :controller => 'admin_sessions', :action => 'new'
-#    administration.logout '/logout', :controller => 'admin_sessions', :action => 'destroy'
-
-#  map.login '/login', :controller => 'user_sessions', :action => 'new'
-#  map.logout '/logout', :controller => 'user_sessions', :action => 'destroy'
+  match "/login" => "user_sessions#new", :as => "login"
+  match "/logout" => "user_sessions#destroy", :as => "logout"
 
 end
