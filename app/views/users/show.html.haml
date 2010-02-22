@@ -2,19 +2,24 @@
 
 %p#site_news We will notify you when the registration starts
 
-%dl#user_data
-  %dt First name
-  %dd= h(@user.first_name)
-  
-  %dt Last name
-  %dd= h(@user.last_name)
-  
-  - unless @user.nick_name.blank?
-    %dt Nick name
-    %dd= h(@user.nick_name)
+%p.gravatar= gravatar_for(@user)
 
-  %dt E-mail
-  %dd= h(@user.email)
+#user_data.details
+  %dl
+    %dt First name
+    %dd= h(@user.first_name)
+    
+    %dt Last name
+    %dd= h(@user.last_name)
+    
+    - unless @user.nick_name.blank?
+      %dt Nick name
+      %dd= h(@user.nick_name)
+
+    %dt E-mail
+    %dd= h(@user.email)
+
+  %p= link_to("Change password", edit_password_path)
 
 #presentations
   - unless @user.presentations.blank?
@@ -28,7 +33,7 @@
   - @user.billing_information.with do |billing_information|
     %h2 Your billing information
     
-    %dl
+    %dl.details
       %dt Company name
       %dd= h(billing_information.name)
       

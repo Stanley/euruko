@@ -1,12 +1,9 @@
 class PresentationsController < ApplicationController
 
-  before_filter :require_user
-#  before_filter :require_owner, :only => [:show, :update]
-  
-#  actions :new, :show, :create, :edit, :update
-  
-#  create.before {object.user = current_user}
-#  [create, update].each {|action| action.wants.html {redirect_to current_user}}
+  def show
+    @presentation = Presentation.find(params['id'])
+    send_unauthorized unless current_admin || (@presentation && @presentation.owner == current_user)
+  end
 
   def new
     @presentation = Presentation.new
@@ -23,11 +20,9 @@ class PresentationsController < ApplicationController
     end
   end
 
-#  def show
-#  end
-
   def edit
     @presentation = Presentation.find params['id']
+    send_unauthorized unless current_admin || (@presentation && @presentation.owner == current_user)
   end
 
   def update

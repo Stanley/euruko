@@ -6,4 +6,8 @@ db/*.sqlite3
 log/*.log
 rerun.txt
 vendor/bundler_gems/*
-tmp/
+*.swp
+public/system/*
+*.swp
+tmp/*
+*~

@@ -1,47 +1,19 @@
-!!!
-%html{:xmlns => "http://www.w3.org/1999/xhtml", 'xml:lang' => "en", 'lang' => "en"}
+!!! 5
+%html
   %head
-    %meta{'http-equiv' => "content-type", :content => "text/html;charset=UTF-8"}/
     = head_title("EuRuKo 2010")
     = meta_description("Register to EuRuKo 2010")
-    = stylesheet_link_tag 'main'
-  %body
-
+    = stylesheet_link_tag 'reset', 'application', 'print'
+    <!--[if IE]> 
+    = stylesheet_link_tag 'ie', :media => "screen, projection"
+    <![endif]-->
+  %body.page_class
     #header
-      = link_to "EuRuKo 2010", "/"
-      %span May 29th/30th Kraków
-
-    #wrapper
+      #nav
+        = render :partial => 'layouts/menu' 
+    #page
       #content
-        %h2= page_title
-        -if flash[:notice]
-          .notice= flash[:notice]
+        - if flash[:notice]
+          #flash= flash[:notice]
+        %h1= page_title
         = yield
-
-      #sidebar
-        - if current_user
-          %h2 Witaj!
-          %p
-            = link_to current_user.full_name, user_path( current_user )
-            = "(#{link_to "Log out", logout_path})"
-        - elsif current_admin
-          %h2 Administration panel
-          %p
-            = current_admin.first_name
-            = "(#{link_to "Log out", administration_logout_path })"
-
-        %h2 What's EuRuKo?
-        %p EuRuKo is an annual conference about the Ruby programming language with an informal atmosphere and lots of opportunities to listen, to talk, to hack and to have fun. This year takes place in Krakow, Poland, on the 29th-30th of May.
-
-        %h2 Follow us
-        %p
-          = image_tag "/images/twitter.png"
-          We've got a Twitter account #{ link_to "@euruko", "http://twitter.com/euruko" } to keep you up to date on everything related with the conference. If you follow us you'll be getting the most updated information.
-
-        %h2 That's Ruby!
-        %p
-          = image_tag "/images/ruby.png"
-          Ruby is a dynamic, open source programming language with a focus on simplicity and productivity. It has an elegant syntax that is natural to read and easy to write. #{ link_to "More...", "http://www.ruby-lang.org/en/about/" }
-
-        %h2 Sponsors
-        %p Please download the 2010 #{ link_to "sponsorship package", "http://wawelhill.com/images/EuRuKo2010_Sponsorship.pdf" } and contact #{ mail_to "sponsorships@euruko2010.org" } with questions.

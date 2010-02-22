@@ -25,3 +25,4 @@ Feature: User authentication
     Given I log in as user with email "john@example.com"
     When I follow "Log out"
     Then I should not be logged in
+      And I should see "logged out"

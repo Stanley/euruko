@@ -1,6 +1,14 @@
 # encoding: utf-8
 
 class UsersController < ApplicationController
+  
+  def index
+    @users = User.all
+  end
+
+  def show
+    @user = current_admin ? User.first(params['id']) : current_user
+  end
 
   def new
     @user = User.new
@@ -16,7 +24,4 @@ class UsersController < ApplicationController
     end
   end
 
-  def show
-    @user = current_admin ? User.first(params['id']) : current_user
-  end
 end

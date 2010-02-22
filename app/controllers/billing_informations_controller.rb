@@ -1,7 +1,6 @@
 class BillingInformationsController < ApplicationController
 
-  before_filter :require_user
-#  before_filter :require_owner, :except => [:new, :create]
+  before_filter :require_owner, :except => [:new, :create]
   
   def new
     @billing_information = BillingInformation.new
@@ -33,5 +32,8 @@ class BillingInformationsController < ApplicationController
       render :action => 'edit'
     end
   end
-  
+
+  def require_owner
+    current_admin || (@billing_information && @billing_information.owner == current_user) || send_unauthorized
+  end
 end

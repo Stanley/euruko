@@ -1,3 +1,5 @@
+require 'paperclip'
+
 class Presentation < ActiveRecord::Base
   validates_inclusion_of :length, :in => ["standard", "long", "lightning"]
 
@@ -6,6 +8,8 @@ class Presentation < ActiveRecord::Base
   validates_presence_of :user
 
   belongs_to :user
+
+  has_attached_file :photo, :styles => { :normal => "300x300", :thumb => "100x100" }
 
   before_validation :assign_user
   after_validation :add_speaker_email_errors

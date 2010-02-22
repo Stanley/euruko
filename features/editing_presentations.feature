@@ -5,17 +5,19 @@ Feature: editing presentations
 
   Scenario: Editing presentation
     Given I log in as user
-    And I have presentation
+      And I have presentation
     When I go to my profile data
-    And I follow "Edit" within "#presentations"
-    And I fill in the following:
-      | Topic               | Even better topic       |
-      | Description         | Even better description |
-      | Speaker information | The best speaker ever   |
-    And I choose "Lightning talk"
-    And I press "Update presentation"
+      And I follow "Edit" within "#presentations"
+      And I fill in the following:
+        | Topic               | Even better topic       |
+        | Description         | Even better description |
+        | Speaker information | The best speaker ever   |
+      And I choose "Lightning talk"
+      And I attach the file "features/fixtures/presentation.png" to "Photo"
+      And I press "Update presentation"
     Then I should see "Your account data"
-    And I should see "Even better topic" within ".topic"
-    And I should see "Even better description" within ".description"
-    And I should see "The best speaker ever" within ".speaker"
-    And I should see "Lightning talk" within ".length"
+      And I should see "Even better topic" within ".topic"
+      And I should see "Even better description" within ".description"
+      And I should see "The best speaker ever" within ".speaker"
+      And I should see "Lightning talk" within ".length"
+      And I should see presentation photo
