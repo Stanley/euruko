@@ -15,8 +15,9 @@
       = f.text_area(:speaker_description)
       = f.error_message_on(:speaker_description)
     
-    %dt Length
+    %dt= f.label(:length, "Length")
     %dd
+      = f.error_message_on(:length)
       = f.radio_button(:length, "standard")
       = f.label(:length_standard, "1 hour")
     %dd
@@ -33,8 +34,9 @@
 
     - if admin_area?
       %dd
-        = f.text_field(:speaker_email)
-        = f.label(:speaker_email, "Speaker email")
+        = f.label(:speaker_id, "Speaker")
+        = f.select(:speaker_id, User.all.map{|u| [u.full_name, u.id]}, {:include_blank => true})
+        = f.error_message_on(:speaker_id)
 
   %p
     = f.submit(@presentation.new_record? ? "Submit presentation" : "Update presentation")

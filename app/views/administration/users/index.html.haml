@@ -9,7 +9,7 @@
     %th
   - @users.each do |user|
     %tr
-      %td= h(user.email)
+      %td= mail_to h(user.email)
       %td= h(user.full_name)
       %td= h(user.nick_name)
       %td= user_presentations(user)

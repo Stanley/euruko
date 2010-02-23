@@ -230,9 +230,13 @@ textarea:focus {
 li {
   font-size: 100%; }
 
+.fieldWithErrors, .formError {
+  color: #DB2225; }
+
 .fieldWithErrors {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  display: inline; }
   .fieldWithErrors input, .fieldWithErrors textarea {
     border: 2px solid #DA0202; }
 
