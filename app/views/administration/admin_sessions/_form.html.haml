@@ -3,12 +3,10 @@
     %dt= f.label(:email, "E-mail")
     %dd
       = f.text_field(:email)
-      = f.error_message_on(:email)
     
     %dt= f.label(:password, "Password")
     %dd
       = f.password_field(:password)
-      = f.error_message_on(:password)
   
   %p= f.submit("Log in")
   

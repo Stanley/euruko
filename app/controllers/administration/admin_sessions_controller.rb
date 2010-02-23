@@ -12,7 +12,8 @@ class Administration::AdminSessionsController < Administration::ApplicationContr
       flash[:notice] = "You are now logged in as admin"
       redirect_to administration_root_path
     else
-      render :action => :new
+      flash[:error] = "Login or password is not valid"
+      redirect_to administration_login_path
     end
   end
 

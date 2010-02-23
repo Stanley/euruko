@@ -6,9 +6,11 @@
     %th Full name
     %th Nickname
     %th Presentations
+    %th
   - @users.each do |user|
     %tr
       %td= h(user.email)
       %td= h(user.full_name)
       %td= h(user.nick_name)
       %td= user_presentations(user)
+      %td= link_to "details", user_path(user)

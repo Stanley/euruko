@@ -21,3 +21,11 @@ Feature: Admin authentication
       And I follow "Log out"
     Then I should see "logged out"
       And I should see "Log in"
+
+  Scenario: Log in fail
+    Given admin with "email" "john@example.com" exists
+    When I go to the administration home page
+      And I fill in "E-mail" with "john@example.com"
+      And I fill in "Password" with "user124"
+      And I press "Log in"
+    Then I should see "Login or password is not valid"

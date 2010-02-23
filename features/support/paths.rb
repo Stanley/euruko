@@ -10,10 +10,13 @@ module NavigationHelpers
     
     when /the home\s?page/
       '/'
+
     when /administration home\s?page/
       '/administration'
+
     when /administration login page/
       new_administration_admin_session_path
+
     when /my profile data/
       root_path
     # Add more mappings here.

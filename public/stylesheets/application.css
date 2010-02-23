@@ -197,14 +197,18 @@ textarea:focus {
 .required {
   color: #F00; }
 
-#flash {
+.flash {
   padding: 6px 10px 6px 10px;
   margin-bottom: 24px;
   width: 96%;
   -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  background: #65CD33;
-  color: #FFF; }
+  -moz-border-radius: 5px; }
+  .flash.notice {
+    background: #65CD33;
+    color: #FFF; }
+  .flash.error {
+    background: #DB2225;
+    color: #FFF; }
 
 #alert {
   background: #EBD151;
