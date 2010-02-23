@@ -39,4 +39,4 @@
   %p
     = f.submit(@presentation.new_record? ? "Submit presentation" : "Update presentation")
     or
-    = link_to "Cancel", current_user ? user_path(current_user) : administration_root_path
+    = link_to "Cancel", root_path

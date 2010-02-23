@@ -7,7 +7,15 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = current_admin ? User.first(params['id']) : current_user
+    send_unauthorized unless (@user = User.first(params['id']) if current_admin)
+  end
+
+  def me
+    if @user = current_user
+      render :action => 'show'
+    else
+      render 'home/index'
+    end
   end
 
   def new
@@ -18,7 +26,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       flash[:notice] = "Your account was created"
-      redirect_to user_path(@user)
+      redirect_to root_path
     else
       render :action => 'new'
     end
