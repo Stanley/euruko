@@ -10,6 +10,7 @@ ActionController::Routing::Routes.draw do |map|
   map.namespace :administration do |administration|
     administration.resource :admin_session
     administration.resources :presentations
+    administration.resources :users
     administration.login '/login', :controller => 'admin_sessions', :action => 'new'
     administration.logout '/logout', :controller => 'admin_sessions', :action => 'destroy'
     administration.root :controller => 'home'
