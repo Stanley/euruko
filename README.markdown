@@ -21,11 +21,11 @@ To run the application:
 To run cucumber:
 
     RAILS_ENV=cucumber rake db:migrate
-    bundle exec rake cucumber
+    rake cucumber
 
 To run rspec:
 
     RAILS_ENV=test rake db:migrate
-    bundle exec rake spec
+    rake spec
 
 

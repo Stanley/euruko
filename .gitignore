@@ -1,4 +1,5 @@
 .idea/
+.bundle/
 bin/*
 capybara-*.html
 config/database.yml
