@@ -5,7 +5,11 @@
     - if current_user
       %li= link_to "Log out", logout_path
       %li= link_to h("You are logged in as %s." % current_user.full_name), root_path
+    - elsif current_admin
+      .admin
+        %li= link_to "Log out", administration_logout_path
+        %li= link_to "Administrator: " + current_admin.full_name, administration_root_path
     - else
       = menu_to "Register", root_path
-      = menu_to "Login", login_path
+      = menu_to "Log in", login_path
   

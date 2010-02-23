@@ -18,6 +18,7 @@ class Administration::AdminSessionsController < Administration::ApplicationContr
 
   def destroy
     current_admin_session.destroy
+    flash[:notice] = "You've been logged out"
     redirect_to root_path
   end
 

@@ -135,6 +135,12 @@ hr {
         color: #FFFFFF;
         background: #111111;
         border-bottom: 1px solid #000000; }
+    #nav ul .admin {
+      float: right; }
+      #nav ul .admin li:last-child > a {
+        background: #BC0A0A;
+        color: #fff;
+        border-bottom: 1px solid #8F0808; }
 
 #user-menu {
   float: right; }
